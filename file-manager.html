@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 
-<!-- Mirrored from semantika.laborasyon.com/demos/default/file-manager.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Dec 2023 17:38:38 GMT -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,6 +22,8 @@
 
     <!-- App styles -->
     <link rel="stylesheet" href="assets/css/app.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 <body class="small-navigation">
 
@@ -122,6 +124,7 @@
             </ul>
         </div>
 
+
         <div>
             <ul class="navbar-nav">
 
@@ -166,7 +169,7 @@
                                     <button class="btn close-header-search" type="button">
                                         <i data-feather="x"></i>
                                     </button>
-                                </div>
+                                </div> 
                             </div>
                         </form>
                     </div>
@@ -728,45 +731,51 @@
         <div class="container-fluid h-100">
 
             <div class="row app-block">
-                <div class="col-md-3 app-sidebar">
+                <div class="col-md-2 app-sidebar">
                     <div class="card">
                         <div class="card-body">
-                            <button class="btn btn-primary btn-block file-upload-btn" data-toggle="modal"
-                                    data-target="#compose">
-                                <i data-feather="plus" class="mr-2"></i>
-                                Upload Files
+                            <button class="btn btn-primary btn-block file-upload-btn" id="uploadBtn">
+                                <i data-feather="plus" class="mr-2"></i>Subir Archivo
                             </button>
+
+                            <!-- El input de tipo file, que estará oculto -->
+                            <input type="file" id="fileInput" style="display: none;" multiple>
+                            
                             <form class="d-none" id="file-upload">
-                                <input type="file" multiple>
+                                <input type="file" id="fileInput">
                             </form>
                         </div>
+                        
                         <div class="app-sidebar-menu">
                             <div class="list-group list-group-flush">
                                 <a href="#" class="list-group-item active d-flex align-items-center">
                                     <i data-feather="folder" class="width-15 height-15 mr-2"></i>
-                                    All Files
-                                    <span class="small ml-auto">45</span>
-                                </a>
+                                    Todos los Archivos
+                                    <!-- <span class="small ml-auto">45</span>
+                                </a> -->
                                 <a href="#" class="list-group-item">
                                     <i data-feather="monitor" class="width-15 height-15 mr-2"></i>
-                                    My Devices
+                                    Mis Dipositivos
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <i data-feather="upload-cloud" class="width-15 height-15 mr-2"></i>
-                                    Recents
+                                    Recientes
                                 </a>
+                                
                                 <a href="#" class="list-group-item d-flex align-items-center">
                                     <i data-feather="star" class="width-15 height-15 mr-2"></i>
-                                    Important
-                                    <span class="small ml-auto">10</span>
+                                    Importante
+                                    <!-- <span class="small ml-auto">10</span> -->
                                 </a>
+
                                 <a href="#" class="list-group-item">
                                     <i data-feather="trash" class="width-15 height-15 mr-2"></i>
-                                    Deleted Files
+                                    Archivos Eliminados
                                 </a>
+                            
                             </div>
                             <div class="card-body">
-                                <h6 class="mb-4">Storage Status</h6>
+                                <h6 class="mb-4">Estado de Almacenamiento</h6>
                                 <div class="d-flex align-items-center">
                                     <div class="mr-3">
                                         <i data-feather="database" class="width-30 height-30"></i>
@@ -777,24 +786,27 @@
                                                  style="width: 40%" aria-valuenow="10" aria-valuemin="0"
                                                  aria-valuemax="100"></div>
                                         </div>
-                                        <div class="line-height-12 small text-muted mt-2">19.5GB used of 25GB</div>
+                                        <div class="line-height-12 small text-muted mt-2">19.5GB usado de 25GB</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-9 app-content">
+
+                <div class="col-md-8 app-content">
                     <div class="app-content-overlay"></div>
 
-                    <h5 class="mb-4">All Files</h5>
+
+                    <h5 class="mb-4">Todos los Archivos</h5>  
                     <div class="app-action">
-                        <div class="action-left">
+                        <!-- <div class="action-left">
                             <ul class="list-inline">
                                 <li class="list-inline-item mb-0">
                                     <a href="#" class="btn btn-outline-light dropdown-toggle" data-toggle="dropdown">
+                                
                                         <i data-feather="plus" class="mr-2"></i>
-                                        Add
+                                        Añadir 
                                     </a>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="#">Folder</a>
@@ -833,14 +845,15 @@
                                     </div>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
+
                         <div class="action-right">
                             <form class="d-flex mr-3">
                                 <a href="#" class="app-sidebar-menu-button btn btn-outline-light">
                                     <i data-feather="menu"></i>
                                 </a>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search file"
+                                    <input type="text" class="form-control" placeholder="Buscar Archivos" id="search-box"
                                            aria-describedby="button-addon1">
                                     <div class="input-group-append">
                                         <button class="btn btn-outline-light" type="button" id="button-addon1">
@@ -848,202 +861,83 @@
                                         </button>
                                     </div>
                                 </div>
+
+                                <div class="action-right">
+                                    <!-- Aquí van tus otros controles -->
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="options" id="option1" autocomplete="off" checked> Archivos
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="options" id="option2" autocomplete="off"> Carpetas
+                                        </label>
+                                    </div>
+                                </div>
+   <!--  
+                                <label class="switch">
+                                    <input type="checkbox" id="toggleView">
+                                    <span class="slider round"></span>
+                                  </label>
+
+                          <button id="toggleViewBtn" type="button" class="btn btn-outline-light">Cambiar Vista</button> -->
+
+
+                                
                             </form>
                         </div>
+
+
+
+                        
                     </div>
+
+
                     <div class="card app-content-body">
+                        <div class="card-body card-files" id="drop-area" style="transition: background-color 0.3s ease-in-out; overflow-y: auto; max-height: 540px;">
+                            <!-- Breadcrumb para la navegación de carpetas -->
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb" id="folder-path">
+                                    <li class="breadcrumb-item"><a href="#" onclick="loadFolderContents('');">Almacenamiento</a></li>
+                                    <!-- Los elementos del breadcrumb se agregarán dinámicamente aquí -->
+                                </ol>
+                            </nav>
+                          
+                            <div class="row" id="file-list">
+                                <!-- Aquí se agregarán las tarjetas de archivos -->
 
-                        <div class="card-body">
 
-                            <h6 class="font-size-11 text-uppercase mb-4">Recently Files</h6>
-
-                            <div class="row">
-                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                                    <div class="card app-file-list">
-                                        <div class="app-file-icon">
-                                            <i class="fa fa-file-pdf-o text-danger"></i>
-                                            <div class="dropdown position-absolute top-0 right-0 mr-3">
-                                                <a href="#" class="font-size-14" data-toggle="dropdown">
-                                                    <i class="fa fa-ellipsis-v"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a href="#" class="dropdown-item">View Details</a>
-                                                    <a href="#" class="dropdown-item">Share</a>
-                                                    <a href="#" class="dropdown-item">Download</a>
-                                                    <a href="#" class="dropdown-item">Copy to</a>
-                                                    <a href="#" class="dropdown-item">Move to</a>
-                                                    <a href="#" class="dropdown-item">Rename</a>
-                                                    <a href="#" class="dropdown-item">Delete</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="p-2 small">
-                                            <div>resume.pdf</div>
-                                            <div class="text-muted">1.2mb</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                                    <div class="card app-file-list">
-                                        <div class="app-file-icon">
-                                            <i class="fa fa-file-excel-o text-success"></i>
-                                            <div class="dropdown position-absolute top-0 right-0 mr-3">
-                                                <a href="#" class="font-size-14" data-toggle="dropdown">
-                                                    <i class="fa fa-ellipsis-v"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a href="#" class="dropdown-item">View Details</a>
-                                                    <a href="#" class="dropdown-item">Share</a>
-                                                    <a href="#" class="dropdown-item">Download</a>
-                                                    <a href="#" class="dropdown-item">Copy to</a>
-                                                    <a href="#" class="dropdown-item">Move to</a>
-                                                    <a href="#" class="dropdown-item">Rename</a>
-                                                    <a href="#" class="dropdown-item">Delete</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="p-2 small">
-                                            <div>last-months-report.xlsx</div>
-                                            <div class="text-muted">120.85kb</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                                    <div class="card app-file-list">
-                                        <div class="app-file-icon">
-                                            <i class="fa fa-file-text-o text-warning"></i>
-                                            <div class="dropdown position-absolute top-0 right-0 mr-3">
-                                                <a href="#" class="font-size-14" data-toggle="dropdown">
-                                                    <i class="fa fa-ellipsis-v"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a href="#" class="dropdown-item">View Details</a>
-                                                    <a href="#" class="dropdown-item">Share</a>
-                                                    <a href="#" class="dropdown-item">Download</a>
-                                                    <a href="#" class="dropdown-item">Copy to</a>
-                                                    <a href="#" class="dropdown-item">Move to</a>
-                                                    <a href="#" class="dropdown-item">Rename</a>
-                                                    <a href="#" class="dropdown-item">Delete</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="p-2 small">
-                                            <div>todo-list.txt</div>
-                                            <div class="text-muted">1.85kb</div>
-                                        </div>
-                                    </div>
-                                </div>
+                       
+                                
+                                
                             </div>
-
-                            <h6 class="font-size-11 text-uppercase mb-4">Updated Files</h6>
-
-                            <div class="row">
-                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                                    <div class="card app-file-list">
-                                        <div class="app-file-icon">
-                                            <i class="fa fa-file-powerpoint-o text-secondary"></i>
-                                            <div class="dropdown position-absolute top-0 right-0 mr-3">
-                                                <a href="#" class="font-size-14" data-toggle="dropdown">
-                                                    <i class="fa fa-ellipsis-v"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a href="#" class="dropdown-item">View Details</a>
-                                                    <a href="#" class="dropdown-item">Share</a>
-                                                    <a href="#" class="dropdown-item">Download</a>
-                                                    <a href="#" class="dropdown-item">Copy to</a>
-                                                    <a href="#" class="dropdown-item">Move to</a>
-                                                    <a href="#" class="dropdown-item">Rename</a>
-                                                    <a href="#" class="dropdown-item">Delete</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="p-2 small">
-                                            <div>presentation-file.pptx</div>
-                                            <div class="text-muted">10.50kb</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                                    <div class="card app-file-list">
-                                        <div class="app-file-icon">
-                                            <i class="fa fa-file-excel-o text-success"></i>
-                                            <div class="dropdown position-absolute top-0 right-0 mr-3">
-                                                <a href="#" class="font-size-14" data-toggle="dropdown">
-                                                    <i class="fa fa-ellipsis-v"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a href="#" class="dropdown-item">View Details</a>
-                                                    <a href="#" class="dropdown-item">Share</a>
-                                                    <a href="#" class="dropdown-item">Download</a>
-                                                    <a href="#" class="dropdown-item">Copy to</a>
-                                                    <a href="#" class="dropdown-item">Move to</a>
-                                                    <a href="#" class="dropdown-item">Rename</a>
-                                                    <a href="#" class="dropdown-item">Delete</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="p-2 small">
-                                            <div>contact-list.xlsx</div>
-                                            <div class="text-muted">8.7mb</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                                    <div class="card app-file-list">
-                                        <div class="app-file-icon">
-                                            <i class="fa fa-file-zip-o text-primary"></i>
-                                            <div class="dropdown position-absolute top-0 right-0 mr-3">
-                                                <a href="#" class="font-size-14" data-toggle="dropdown">
-                                                    <i class="fa fa-ellipsis-v"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a href="#" class="dropdown-item">View Details</a>
-                                                    <a href="#" class="dropdown-item">Share</a>
-                                                    <a href="#" class="dropdown-item">Download</a>
-                                                    <a href="#" class="dropdown-item">Copy to</a>
-                                                    <a href="#" class="dropdown-item">Move to</a>
-                                                    <a href="#" class="dropdown-item">Rename</a>
-                                                    <a href="#" class="dropdown-item">Delete</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="p-2 small">
-                                            <div>website-html-files.zip</div>
-                                            <div class="text-muted">100mb</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                                    <div class="card app-file-list">
-                                        <div class="app-file-icon">
-                                            <i class="fa fa-file-word-o text-info"></i>
-                                            <div class="dropdown position-absolute top-0 right-0 mr-3">
-                                                <a href="#" class="font-size-14" data-toggle="dropdown">
-                                                    <i class="fa fa-ellipsis-v"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a href="#" class="dropdown-item">View Details</a>
-                                                    <a href="#" class="dropdown-item">Share</a>
-                                                    <a href="#" class="dropdown-item">Download</a>
-                                                    <a href="#" class="dropdown-item">Copy to</a>
-                                                    <a href="#" class="dropdown-item">Move to</a>
-                                                    <a href="#" class="dropdown-item">Rename</a>
-                                                    <a href="#" class="dropdown-item">Delete</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="p-2 small">
-                                            <div>articles.docx</div>
-                                            <div class="text-muted">100.25kb</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
+                    </div>
+                    
+                    
 
+                </div>
+            
+
+    
+
+                <div id="preview-container" class="col-md-2 app-content mt-5 bg-white" style="display: none" >
+                    <!-- Vista previa de la imagen -->
+                    <div class="image-cont" style="height: 300px; display: flex; align-items: center; justify-content: center;">
+                        <img id="preview-image" src="ruta_a_tu_imagen.jpg" alt="Vista Previa" class="img-fluid">
+                    </div>
+                    
+                 
+                
+                    <!-- Detalles del archivo debajo de la imagen -->
+                    <div class="file-details" id="preview-details">
+                        <p>Nombre del archivo: ejemplo.jpg</p>
+                        <p>Tamaño: 2MB</p>
+                        <!-- Otros detalles que quieras incluir -->
                     </div>
                 </div>
+                
+            
+                
             </div>
 
         </div>
@@ -1082,26 +976,678 @@
 <!-- App scripts -->
 <script src="assets/js/app.min.js"></script>
 
+
 <script>
-    $(function () {
-        $(document).on('click', '.file-upload-btn', function () {
-            $('form#file-upload input[type="file"]').trigger('click');
-        });
 
-        $(document).on('click', '.app-sidebar-menu-button', function () {
-            $('.app-block .app-sidebar, .app-content-overlay').addClass('show');
-            // $('.app-block .app-sidebar .app-sidebar-menu').niceScroll().resize();
-            return false;
-        });
 
-        $(document).on('click', '.app-content-overlay', function () {
-            $('.app-block .app-sidebar, .app-content-overlay').removeClass('show');
-            return false;
+document.addEventListener('DOMContentLoaded', function() {
+
+
+    fetch('./php/listFiles.php')
+        .then(response => response.json())
+        .then(files => {
+            files.forEach(fileInfo => {
+                onFileUploadSuccess(fileInfo);
+            });
+        })
+        .catch(error => console.error('Error:', error));
+        
+
+        $('#toggleViewBtn').click(function(e) {
+        e.preventDefault(); // Esto evitará que el botón envíe el formulario
+        isListView = !isListView;
+        toggleListView();
+    });
+
+    
+
+
+    document.getElementById('toggleView').addEventListener('change', function() {
+    var container = document.getElementById('file-list'); // Asegúrate de que este ID coincida con el contenedor principal de tus archivos/carpetas
+
+    if (this.checked) {
+        // Cambiar a la vista de lista
+        container.classList.remove('grid-view');
+        container.classList.add('list-view');
+    } else {
+        // Cambiar a la vista de grilla
+        container.classList.remove('list-view');
+        container.classList.add('grid-view');
+    }
+});
+
+
+
+
+var searchBox = document.getElementById('search-box');
+searchBox.addEventListener('input', function(e) {
+    var searchText = e.target.value.toLowerCase();
+    console.log('Texto de búsqueda:', searchText); // Para depuración
+    var fileCards = document.querySelectorAll('.card.app-file-list');
+
+    fileCards.forEach(function(card) {
+        // Asegúrate de que la ruta del archivo esté presente en dataset.filePath
+        if (typeof card.dataset.filePath === 'undefined') {
+            console.error('dataset.filePath no está definido en el elemento', card);
+            return; // Salta este archivo
+        }
+
+        var filePath = card.dataset.filePath.toLowerCase();
+        console.log('Ruta del archivo:', filePath); // Para depuración
+
+        // Verifica si la ruta del archivo o el nombre del archivo contiene el texto de búsqueda
+        var isVisible = filePath.includes(searchText) || card.dataset.fileName.toLowerCase().includes(searchText);
+        console.log('¿Es visible?', isVisible); // Para depuración
+
+        // Actualiza la visualización de la tarjeta de archivo basada en la búsqueda
+        card.style.display = isVisible ? '' : 'none';
+    });
+});
+
+
+
+
+
+    var dropArea = document.getElementById('drop-area');
+
+    var previewCont = document.getElementById('preview-container');
+    previewCont.style.display = 'none';
+
+    // Evitar comportamientos por defecto para eventos de arrastrar
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, preventDefaults, false);
+        document.body.addEventListener(eventName, preventDefaults, false);
+    });
+
+    // Resaltar drop area cuando se arrastre archivos sobre ella
+    ['dragenter', 'dragover'].forEach(eventName => {
+        dropArea.addEventListener(eventName, highlight, false);
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, unhighlight, false);
+    });
+
+    // Manejar archivos cuando se suelten
+    dropArea.addEventListener('drop', handleDrop, false);
+
+    function preventDefaults(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    function highlight(e) {
+        dropArea.classList.add('highlight');
+    }
+
+    function unhighlight(e) {
+        dropArea.classList.remove('highlight');
+    }
+
+    function handleDrop(e) {
+        var dt = e.dataTransfer;
+        var files = dt.files;
+
+        handleFiles(files);
+    }
+
+    function handleFiles(files) {
+        ([...files]).forEach(uploadFile);
+    }
+    function uploadFile(file) {
+    var breadcrumb = document.getElementById('folder-path');
+    var currentFolderPath = breadcrumb.getAttribute('data-current-path') || '';
+    var formData = new FormData();
+    formData.append('file', file);
+    formData.append('folder', currentFolderPath); // añade la ruta de la carpeta al FormData
+
+
+    // Crea una solicitud para subir el archivo
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', './php/uploadFiles.php', true);
+
+    // Opcional: Mostrar el progreso de la carga
+    xhr.upload.onprogress = function(e) {
+        if (e.lengthComputable) {
+            var percentComplete = (e.loaded / e.total) * 100;
+            console.log(percentComplete + '% uploaded');
+        }
+    };
+
+    // Maneja la respuesta del servidor
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            // Si el servidor responde que la carga fue exitosa
+            // Agregar el archivo a la lista sin recargar la página
+            var fileInfo = {
+                fileName: file.name,
+                fileSize: formatFileSize(file.size), // Asegúrate de que esta función se llame para formatear el tamaño del archivo
+                filePath: './images/' + file.name // O la ruta que responda el servidor
+            };
+            addFileToList(fileInfo);
+ 
+            console.log('Archivo subido: ' + file.name);
+        } else {
+            console.error('Error en la carga del archivo.');
+        }
+    };
+
+    // Enviar el archivo al servidor
+    xhr.send(formData);
+}
+
+
+
+function addFileToList(fileInfo) {
+    var fileList = document.getElementById('file-list');
+    var colDiv = document.createElement('div');
+    colDiv.className = 'col-xl-3 col-lg-4 col-md-6 col-sm-12';
+
+    var cardDiv = document.createElement('div');
+    cardDiv.className = 'card app-file-list';
+    cardDiv.dataset.fileName = fileInfo.fileName;
+    cardDiv.dataset.fileSize = fileInfo.fileSize;
+    cardDiv.dataset.filePath = fileInfo.filePath;
+    cardDiv.dataset.isFolder = fileInfo.isFolder;
+
+    var isImageFile = fileInfo.fileName.match(/\.(jpeg|jpg|gif|png)$/i);
+    var filePreview = isImageFile
+        ? `<img src="${fileInfo.filePath}" alt="${fileInfo.fileName}" class="img-fluid" style="height: 50px; object-fit: cover;">`
+        : getFileIcon(fileInfo.fileName);
+
+    var fileNameDiv = document.createElement('div');
+    fileNameDiv.className = 'file-name';
+    fileNameDiv.style.height = '3em'; // fija la altura del nombre del archivo
+    fileNameDiv.style.overflow = 'hidden'; // oculta el texto que desborde
+    fileNameDiv.textContent = fileInfo.fileName;
+
+    var fileSizeDiv = document.createElement('div');
+    fileSizeDiv.className = 'text-muted file-size';
+    fileSizeDiv.textContent = formatFileSize(fileInfo.fileSize);
+
+    var cardBodyDiv = document.createElement('div');
+    cardBodyDiv.className = 'p-2 small text-center';
+    cardBodyDiv.appendChild(fileNameDiv);
+    cardBodyDiv.appendChild(fileSizeDiv);
+
+    cardDiv.innerHTML = `
+        <div class="app-file-icon d-flex justify-content-center align-items-center" style="height: 120px;">
+            ${filePreview}
+        </div>
+    `;
+
+    cardDiv.appendChild(cardBodyDiv); // Añade el cuerpo de la tarjeta al div principal
+
+    // Añade el evento de clic que actualiza la vista previa
+    cardDiv.addEventListener('click', function() {
+        updateFilePreview(fileInfo);
+    });
+
+    colDiv.appendChild(cardDiv);
+    fileList.appendChild(colDiv);
+}
+
+});
+
+$(document).ready(function() {
+    // Asegúrate de que el DOM está completamente cargado
+
+    // Escucha los cambios en cualquier input de tipo radio con el nombre 'options'
+    $('input[type="radio"][name="options"]').change(function() {
+        var showFiles = this.id === 'option1'; // Asume que 'option1' es para archivos
+        console.log('Seleccionado:', this.id); // Debería mostrarte 'option1' o 'option2'
+        filterFileCards(showFiles);
+    });
+
+    function filterFileCards(showFiles) {
+        var fileCardContainers = document.querySelectorAll('#file-list > div');
+        
+        fileCardContainers.forEach(function(container) {
+            var isFolder = container.querySelector('.card.app-file-list').dataset.isFolder === 'true';
+            if ((isFolder && !showFiles) || (!isFolder && showFiles)) {
+                container.style.display = ''; // o 'flex' u otro display apropiado
+            } else {
+                container.style.display = 'none';
+            }
+        });
+    }
+
+    $('#toggleViewBtn').click(function() {
+        fetchFilesAndBuildListView();
+    });
+
+    // Aquí invocas la función de filtrado con 'true' porque 'Archivos' está marcado por defecto
+    filterFileCards(true);
+    loadFolderContents('');
+    // ... Resto de tu código para manejar la carga de archivos y otras funcionalidades ...
+});
+
+
+
+
+
+
+
+
+function formatFileSize(bytes) {
+    var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    if (bytes == 0) return '0 Byte';
+    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+    return (bytes / Math.pow(1024, i)).toFixed(2) + ' ' + sizes[i];
+}
+
+
+
+</script>
+
+
+<script>
+
+
+//===== Subida de Archivos a tabla 'documento' ======//
+
+document.getElementById('uploadBtn').addEventListener('click', function() {
+    document.getElementById('fileInput').click();
+});
+
+
+// Event listener para manejar la carga de archivos
+document.getElementById('fileInput').addEventListener('change', handleFileInputChange);
+
+function handleFileInputChange() {
+    // Verifica si hay archivos seleccionados
+    if (this.files.length > 0) {
+        var file = this.files[0];
+        var formData = new FormData();
+        var breadcrumb = document.getElementById('folder-path');
+        var currentFolderPath = breadcrumb.getAttribute('data-current-path') || ''; // obtén la ruta actual
+        formData.append('file', file);
+        formData.append('folder', currentFolderPath); // Envía la ruta actual
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', './php/uploadFiles.php', true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                // Parsea la respuesta JSON
+                var response = JSON.parse(xhr.responseText);
+
+                if (response.success) {
+                    // Archivo subido exitosamente
+                    console.log("Archivo subido: " + response.fileName);
+
+                    // Suponiendo que el servidor devuelve información sobre el archivo en JSON
+                    var fileInfo = {
+                        fileName: response.fileName,
+                        fileSize: response.fileSize // Aquí podrías llamar a formatFileSize si es necesario
+                    };
+
+                    // Actualiza la interfaz de usuario
+                    onFileUploadSuccess(fileInfo);
+                } else {
+                    // Manejar el error en la carga del archivo
+                    console.error(response.error);
+                }
+            } else {
+                // Error en la respuesta del servidor
+                console.error('Error en la respuesta del servidor.');
+            }
+        };
+        xhr.send(formData);
+    }
+    // Restablece el input de archivo para que se pueda subir el mismo archivo si es necesario
+    resetFileInput();
+}
+
+function createDocumentEntry(fileInfo) {
+    // Aquí deberías tener el ID del usuario y la categoría del documento
+    var usuarioId = '1';
+    var categoriaId = '1';
+    var descripcion = 'Descripcion Generica';
+    var versionDocumento = '1';
+    var activo = '1';
+
+    // Preparar el objeto FormData con todos los datos necesarios
+    var data = new FormData();
+    data.append('nombre', fileInfo.fileName);
+    data.append('rutaArchivo', fileInfo.filePath);
+    data.append('usuarioId', usuarioId);
+    data.append('categoriaId', categoriaId);
+    data.append('descripcion', descripcion);
+    data.append('versionDocumento', versionDocumento);
+    data.append('Activo', activo);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', './php/createDocumentEntry.php', true);
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            // La entrada del documento se ha creado con éxito en la base de datos
+            console.log('Entrada del documento creada:', xhr.responseText);
+        } else {
+            console.error('Error al crear la entrada del documento:', xhr.responseText);
+        }
+    };
+    xhr.onerror = function () {
+        console.error('Error en la solicitud de red.');
+    };
+    xhr.send(data);
+}
+
+
+
+function resetFileInput() {
+    var fileInputContainer = document.getElementById('file-upload');
+    var oldInput = document.getElementById('fileInput');
+    var newInput = document.createElement('input');
+    newInput.type = 'file';
+    newInput.id = oldInput.id;
+
+    fileInputContainer.replaceChild(newInput, oldInput);
+    newInput.addEventListener('change', handleFileInputChange);
+}
+
+// Otras funciones (onFileUploadSuccess, createFileCard, formatFileSize) permanecen iguales
+
+function onFileUploadSuccess(fileInfo) {
+    // Obtiene la ruta actual desde el breadcrumb o asigna un valor predeterminado si está vacío
+    var currentFolderPath = document.getElementById('folder-path').getAttribute('data-current-path') || '';
+
+    // Si la ruta actual no está vacía y no termina en '/', añade '/'
+    if (currentFolderPath && !currentFolderPath.endsWith('/')) {
+        currentFolderPath += '/';
+    }
+
+    // Añade la carpeta actual a la ruta del archivo si es necesario
+    var fullPath = './images/' + currentFolderPath + fileInfo.fileName;
+    console.log('Ruta completa después de subir:', fullPath);
+    
+    // Actualiza la vista previa del archivo
+    var fileCard = createFileCard({
+        fileName: fileInfo.fileName,
+        fileSize: fileInfo.fileSize,
+        fullPath: fullPath // Usa la ruta completa aquí
+    });
+   
+    var fileInfo = {
+        fileName: fileInfo.fileName,
+        fileSize: fileInfo.fileSize,
+        filePath: fileInfo.filePath // La ruta donde se guardó el archivo
+    };
+
+    createDocumentEntry(fileInfo);
+
+    // Añade la nueva tarjeta de archivo al contenedor
+    var filesContainer = document.getElementById('file-list');
+    filesContainer.appendChild(fileCard);
+
+    // Llama a la función para mostrar la vista previa
+    updateFilePreview({
+        fileName: fileInfo.fileName,
+        fileSize: fileInfo.fileSize,
+        filePath: fullPath
+    });
+}
+
+
+//========================================//
+
+
+function getFileIcon(fileName) {
+    var extension = fileName.split('.').pop().toLowerCase();
+    var iconClass;
+    switch (extension) {
+        case 'pdf':
+            iconClass = 'fa-file-pdf'; // Asegúrate de tener el ícono correcto de Font Awesome
+            break;
+        case 'doc':
+        case 'docx':
+            iconClass = 'fa-file-word'; // Asegúrate de tener el ícono correcto de Font Awesome
+            break;
+        case 'xlsx':
+            iconClass = 'fa-file-excel'; // Asegúrate de tener el ícono correcto de Font Awesome
+            break;
+        // Añade más casos según sea necesario
+        default:
+            iconClass = 'fa-folder'; // Un ícono de archivo genérico para otros tipos de archivos
+    }
+    return `<i class="fas ${iconClass}" style="font-size: 48px;"></i>`; // Establece el tamaño del ícono como necesites
+}
+
+var isListView = false;
+function createFileCard(fileInfo, folderPath = '')  {
+    // Modo de visualización de tarjeta (grid) actual
+    var colDiv = document.createElement('div');
+    colDiv.className = 'col-xl-3 col-lg-4 col-md-6 col-sm-12';
+
+    var cardDiv = document.createElement('div');
+    cardDiv.className = 'card app-file-list';
+    cardDiv.dataset.fileName = fileInfo.fileName;
+
+    if (!fileInfo.isFolder) {
+        cardDiv.dataset.filePath = './images/' + (folderPath ? folderPath + '/' : '') + fileInfo.fileName;
+        console.log('Ruta completa en createFileCard:', cardDiv.dataset.filePath); // Agregado para depuración
+    }
+ 
+    cardDiv.dataset.isFolder = fileInfo.isFolder;
+
+    var filePreview = fileInfo.isFolder
+        ? `<i class="fas fa-folder" style="font-size: 48px;"></i>`
+        : fileInfo.fileName.match(/\.(jpeg|jpg|gif|png)$/i)
+            ? `<img src="${fileInfo.fullPath}" alt="${fileInfo.fileName}" class="img-fluid" style="height: 50px; object-fit: cover;">`
+            : getFileIcon(fileInfo.fileName);
+
+            var dropdownLink = fileInfo.isFolder ? '' :
+`
+<div class="dropdown">
+    <button class="btn btn-link dropdown-toggle dropdown-icon" type="button" id="dropdownMenuButton-${fileInfo.fileName}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-ellipsis-v"></i>
+    </button>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton-${fileInfo.fileName}">
+        <a class="dropdown-item" href="${fileInfo.fullPath}" download="${fileInfo.fileName}">Descargar</a>
+    </div>
+</div>
+`;
+
+    cardDiv.innerHTML = `
+        <div class="app-file-icon d-flex justify-content-center align-items-center" style="height: 120px;">
+            ${filePreview}
+        </div>
+        <div class="p-2 small text-center">
+            <div>${fileInfo.fileName}</div>
+            <div class="text-muted">${!fileInfo.isFolder ? formatFileSize(fileInfo.fileSize) : ''}</div>
+        </div>
+        <div class="card-dropdown">
+            ${dropdownLink} <!-- Añades el dropdown aquí -->
+        </div>
+    `;
+
+    var cardStyle = document.createElement('style');
+    cardStyle.type = 'text/css';
+    cardStyle.innerHTML = `
+        .card-dropdown {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+    `;
+    document.head.appendChild(cardStyle);
+
+    cardDiv.addEventListener('click', function() {
+        if (!fileInfo.isFolder) {
+            // Actualiza la vista previa utilizando fileInfo.fullPath
+            updateFilePreview({
+                fileName: this.dataset.fileName,
+                fileSize: this.dataset.fileSize,
+                filePath: fileInfo.fullPath // Aquí usamos fullPath
+            });
+        } else {
+            // Si es una carpeta, cargar su contenido
+            let newFolderPath = folderPath ? folderPath + '/' + fileInfo.fileName : fileInfo.fileName;
+            loadFolderContents(newFolderPath);
+        }
+    });
+
+    colDiv.appendChild(cardDiv);
+    return colDiv;
+}
+
+
+
+
+function updateFilePreview(fileInfo) {
+    var previewContainer = document.getElementById('preview-container');
+    var imagePreview = document.getElementById('preview-image');
+    var fileDetails = document.getElementById('preview-details');
+
+    // Si fullPath no está definido, constrúyelo
+    var fullPath = fileInfo.fullPath || `./images/${fileInfo.fileName}`;
+
+    // Actualiza la imagen y los detalles para la vista previa
+    imagePreview.src = fullPath;
+    imagePreview.alt = 'Vista Previa de ' + fileInfo.fileName;
+    fileDetails.innerHTML = `
+        <p>Nombre del archivo: ${fileInfo.fileName}</p>
+        <p>Tamaño: ${formatFileSize(fileInfo.fileSize)}</p>
+    `;
+
+    // Muestra el contenedor de vista previa
+    previewContainer.style.display = 'block';
+}
+
+
+
+</script>
+
+
+
+<script>
+
+//Mostrar archivos al hacer clic en carpetas
+
+function loadFolderContents(folderPath) {
+    const folderQueryParam = folderPath ? `?folder=${encodeURIComponent(folderPath)}` : '';
+    fetch(`./php/listFiles.php${folderQueryParam}`)
+        .then(response => response.json())
+        .then(files => {
+            // Ordena primero las carpetas y luego los archivos
+            files.sort((a, b) => {
+                // Asegurándose de que las carpetas vengan primero
+                if (a.isFolder && !b.isFolder) {
+                    return -1;
+                }
+                if (!a.isFolder && b.isFolder) {
+                    return 1;
+                }
+                // Si ambos son carpetas o ambos son archivos, los ordena alfabéticamente
+                return a.fileName.localeCompare(b.fileName);
+            });
+
+            var fileList = document.getElementById('file-list');
+            fileList.innerHTML = ''; // Limpia la lista actual
+            files.forEach(fileInfo => {
+                fileInfo.fullPath = `./images/${folderPath}/${fileInfo.fileName}`;
+                var fileCard = createFileCard(fileInfo, folderPath); // Pasamos también el folderPath
+                fileList.appendChild(fileCard);
+            });
+
+            // Actualiza el breadcrumb aquí también
+            updateBreadcrumb(folderPath.split('/'));
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+
+
+
+
+
+// Agregar evento de clic en las carpetas
+function addClickEventsToFolders() {
+    var folderCards = document.querySelectorAll('.card.app-file-list[data-isfolder="true"]');
+    folderCards.forEach(card => {
+        card.addEventListener('click', function() {
+            var folderName = this.dataset.fileName;
+            loadFolderContents(folderName); // Carga el contenido de la carpeta
         });
     });
+
+    card.addEventListener('click', function() {
+    var folderName = this.dataset.fileName;
+    var breadcrumb = document.getElementById('folder-path');
+    var currentPath = breadcrumb.getAttribute('data-current-path') || '';
+    var newFolderPath = currentPath + folderName + '/';
+    breadcrumb.setAttribute('data-current-path', newFolderPath); // Actualizar la ruta actual
+    loadFolderContents(newFolderPath); // Carga el contenido de la carpeta
+});
+
+
+}
+
+
+function updateBreadcrumb(pathArray) {
+    const breadcrumb = document.getElementById('folder-path');
+    breadcrumb.innerHTML = '<li class="breadcrumb-item"><a href="#" onclick="loadFolderContents(\'\')">Almacenamiento</a></li>';
+    let pathSoFar = '';
+    pathArray.forEach((folder, index) => {
+        pathSoFar += folder + '/';
+        const isLast = index === pathArray.length - 1;
+        breadcrumb.innerHTML += `<li class="breadcrumb-item ${isLast ? 'active' : ''}" aria-current="page">
+            <a href="#" onclick="loadFolderContents('${pathSoFar}')">${folder}</a>
+        </li>`;
+    });
+    breadcrumb.setAttribute('data-current-path', pathSoFar); // guarda la ruta actual
+    console.log("Ruta actual:", pathSoFar);
+}
+
+function resetOptionsAndLoadRoot() {
+    // Desmarca los botones de radio
+    $('input[type="radio"][name="options"]').prop('checked', false).parent().removeClass('active');
+
+    // Carga el contenido de la carpeta raíz
+    loadFolderContents('');
+}
+
+
+// Asegúrate de llamar a esta función después de cargar la lista inicial de archivos y carpetas
+addClickEventsToFolders();
+
+</script>
+
+
+<script>
+
+
+
+function buildGridView(files) {
+    // Limpiar la lista actual
+    $('#file-list').empty();
+
+    // Construir la vista de tarjetas como antes
+    files.forEach(function(fileInfo) {
+        var fileCard = createFileCard(fileInfo); // Esta función crea las tarjetas
+        $('#file-list').append(fileCard);
+    });
+}
+
+function fetchFilesAndBuildGridView() {
+    fetch('./php/listFiles.php')
+    .then(response => response.json())
+    .then(files => {
+        files.forEach(fileInfo => {
+            var fileCard = createFileCard(fileInfo);
+            // Aquí añades fileCard al DOM, por ejemplo:
+            document.getElementById('file-list').appendChild(fileCard);
+        });
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+
+
+// La función formatFileSize() debería seguir siendo la misma que ya tienes
+
+
 </script>
 
 </body>
 
-<!-- Mirrored from semantika.laborasyon.com/demos/default/file-manager.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Dec 2023 17:38:38 GMT -->
 </html>
