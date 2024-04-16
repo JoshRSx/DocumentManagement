@@ -1,0 +1,149 @@
+/* Estilos generales para las columnas */
+.kanban-column {
+    background-color: #101204;
+    color: #FFF;/* Texto claro para visibilidad */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    height: fit-content;
+}
+
+.kanban-column-header{
+    font-family: 'Arial', sans-serif; /* Esto es un supuesto, Arial es comúnmente usado */
+    font-size: 10px; /* Un tamaño común para subtítulos o encabezados */
+    font-weight: bold; /* Para que el texto se vea en negrita */
+    color: #FFFFFF; /* Blanco, para contraste con fondos oscuros */
+    text-transform: uppercase; /* Si el texto está en mayúsculas */
+    padding: 10px; /* Espacio alrededor del texto dentro del contenedor */
+}
+
+/*MEJORAS PERSONALIZADAS: TRELLO SECUENCIA*/
+.kanban-card {
+    background-color: #22272B; /* Fondo oscuro para la columna */
+    border-radius: 10px; /* Bordes redondeados para la tarjeta */
+    margin-bottom: 10px; /* Espacio debajo de cada tarjeta */
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Sombra para dar profundidad */
+    transition: box-shadow 0.3s ease-in-out; /* Transición suave para la sombra */
+    font-family: 'Open Sans', sans-serif; /* Tipo de letra */
+    margin-top: 8px; /* Espacio arriba de cada tarjeta */
+}
+
+.kanban-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border: 2px solid #84B6F4;
+}
+
+/*
+Header-card
+*/
+
+.card-content {
+    position: relative; /* Establece una posición relativa para posicionar elementos internos */
+    padding: 5px; /* Espaciado interno del contenido */
+    overflow: hidden; /* Asegura que nada salga del borde redondeado */
+  }
+  
+.card-content::before {
+    content: "";
+    position: absolute; /* Posición absoluta con respecto al div relativo */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover; /* Asegura que la imagen cubra todo el espacio disponible */
+    background-position: center; /* Centra la imagen en el div */
+    opacity: 0.5; /* Ajusta la opacidad si deseas que el texto se vea encima */
+    z-index: -1; /* Coloca la imagen detrás del contenido del div */
+}
+  
+/* Asegúrate de que el contenido del .card-content no esté transparente y se vea claramente */
+.card-content > * {
+    position: relative;
+    z-index: 1;
+}
+  
+.card-section {
+    display: flex; /* Distribución en línea de elementos */
+    justify-content: space-between; /* Justificación del contenido */
+    align-items: center; /* Alineación vertical de los elementos */
+    margin-bottom: 5px; /* Espaciado entre secciones */
+}
+
+.section-title {
+    font-weight: bold; /* Texto en negrita */
+}
+
+.section-count {
+    background-color: #333; /* Fondo oscuro para el contador */
+    color: white; /* Texto en blanco para el contador */
+    padding: 2px 6px; /* Espaciado interno del contador */
+    border-radius: 10px; /* Bordes redondeados para el contador */
+    font-size: 0.8em; /* Tamaño de fuente más pequeño para el contador */
+}
+
+
+/* Estilo del botón para añadir tarjeta */
+.kanban-buton {
+    background-color: #101204;/* Fondo oscuro para el botón */
+    color: #FFF;/* Texto claro */
+    text-align: left;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    
+    margin: 4px 2px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.kanban-buton:hover {
+    background-color: #555;
+    /* Cambio de color al hacer hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .col-md-3.kanban-column {
+        width: 100%;/* Ancho total en dispositivos móviles */
+        margin-bottom: 20px;
+    }
+}
+
+
+  /*MEJORAS PERSONALIZADAS: TRELLO SECUENCIA*/
+  .image-container {
+    border-radius: 10px 10px 0 0; /* Redondea solo las esquinas superiores */
+    width: 100%; /* Asegura que la imagen cubra el ancho completo del contenedor */
+    height: 100%; /* Asegura que la imagen cubra el alto completo del contenedor del encabezado */
+    overflow: hidden; /* Esto recortará cualquier imagen que desborde */
+  }
+  
+  .image-container img {
+    width: 100%; /* Asegura que la imagen cubra el ancho completo del contenedor */
+    height: 100%; /* Asegura que la imagen cubra el alto completo del contenedor del encabezado */
+    display: block; /* Elimina cualquier espacio extra debajo de la imagen */
+
+  }
+  .auto-img{
+    width: 100%; /* Asegura que la imagen cubra el ancho completo del contenedor */
+    height: 100%; /* Asegura que la imagen cubra el alto completo del contenedor del encabezado */
+    display: block; /* Elimina cualquier espacio extra debajo de la imagen */
+  }
+
+/* Estilos para visualizar contornos en el modal */
+.modal-content {
+    border: 2px solid red; /* Contorno del contenido del modal */
+}
+
+
+/***************************
+DESCRIPCIÓN: STYLOS DE 
+FECHA 13-03-2024
+
+*/
+.completed {
+    text-decoration: line-through;
+    color: grey;
+  }

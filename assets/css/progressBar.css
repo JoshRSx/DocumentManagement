@@ -1,0 +1,14 @@
+.completed {
+    text-decoration: line-through;
+}
+.progress-container {
+    width: 100%;
+    background-color: #eee;
+}
+.progress-bar {
+    width: 0%;
+    height: 20px;
+    background-color: green;
+    text-align: center;
+    color: white;
+}
