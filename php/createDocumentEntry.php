@@ -44,3 +44,4 @@ if (isset($_POST['nombre'], $_POST['rutaArchivo'], $usuarioId, $categoriaId)) {
 
 echo json_encode($response);
 ?>
+
