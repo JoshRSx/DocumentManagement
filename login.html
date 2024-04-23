@@ -1,7 +1,5 @@
 <!doctype html>
-<html lang="en">
-
-<!-- Mirrored from semantika.laborasyon.com/demos/default/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Dec 2023 17:38:59 GMT -->
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,104 +15,189 @@
     <!-- App styles -->
     <link rel="stylesheet" href="assets/css/app.min.css" type="text/css">
 </head>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('./assets/media/image/fondo_intra.png');
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 320px;
+    margin: 20px auto;
+}
+
+h5 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+#captchaContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Esto empujará el logo hacia el extremo derecho */
+    gap: 10px; /* Esto es opcional, dependiendo del espaciado que desees entre los elementos */
+}
+
+#customCheckbox {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #ccc; /* Borde gris */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 10px;
+    position: relative;
+    bottom: 2px;
+}
+
+#customCheckbox.checked {
+    border: none; /* Elimina el borde cuando esté seleccionado */
+    background-color: transparent;
+}
+
+#customCheckbox.checked::before {
+    content: '✔'; /* Icono de verificación */
+    color: #4cae4c; /* Color verde */
+    font-size: 24px; /* Ajusta este valor como sea necesario */
+}
+
+#textoCaptcha {
+    font-size: 14px;
+    position: relative;
+    right: 7px;
+}
+
+#logoCaptcha {
+    height: 46px;
+    cursor: pointer;
+    position: relative;
+    bottom: 2px;
+}
+
+.btn-block {
+    background-color: #007bff;
+    border: none;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.btn-block:hover {
+    background-color: #0056b3;
+}
+
+#loadingIcon {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    margin-right: 11px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+}
+
+.hidden {
+    display: none !important;
+}
+#customCheckbox.hidden {
+    display: none; /* Oculta el checkbox cuando se añade la clase hidden */
+}
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Cuando el checkbox está marcado, ocultar el ícono de carga y mostrar el check */
+#customCheckbox.checked #loadingIcon {
+    display: none;
+}
+</style>
 <body class="form-membership">
-
-<!-- begin::preloader-->
-<div class="preloader">
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="50px" height="50px" viewBox="0 0 128 128"
-         xml:space="preserve">
-        <rect x="0" y="0" width="100%" height="100%" fill="#FFFFFF"/>
-        <g>
-            <path d="M75.4 126.63a11.43 11.43 0 0 1-2.1-22.65 40.9 40.9 0 0 0 30.5-30.6 11.4 11.4 0 1 1 22.27 4.87h.02a63.77 63.77 0 0 1-47.8 48.05v-.02a11.38 11.38 0 0 1-2.93.37z"
-                  fill="#000000" fill-opacity="1"/>
-            <animateTransform attributeName="transform" type="rotate" from="0 64 64" to="360 64 64"
-                              dur="500ms" repeatCount="indefinite">
-            </animateTransform>
-        </g>
-    </svg>
-</div>
-<!-- end::preloader -->
-
-<div class="form-wrapper">
-
-    <!-- logo -->
-    <div id="logo">
-        <img class="logo" src="assets/media/image/logo.png" alt="image">
-        <img class="logo-dark" src="assets/media/image/logo-dark.html" alt="image">
-    </div>
-    <!-- ./ logo -->
-
-    <h5>Sign in</h5>
-
-    <!-- form -->
-    <form>
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Username or email" required autofocus>
+    <!-- Formulario -->
+    <div class="form-wrapper">
+        <!-- logo -->
+        <div id="logo">
+            <img class="logo" src="assets/media/image/logo.png" alt="Semantika">
         </div>
-        <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" required>
-        </div>
-        <div class="form-group d-flex justify-content-between">
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" checked="" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1">Remember me</label>
+        <h5><strong>Iniciar Sesión</strong></h5>
+        <!-- form -->
+        <form>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Usuario" required autofocus>
             </div>
-            <a href="recover-password.html">Reset password</a>
-        </div>
-        <button class="btn btn-primary btn-block">Sign in</button>
-        <hr>
-        <p class="text-muted">Login with your social media account.</p>
-        <ul class="list-inline">
-            <li class="list-inline-item">
-                <a href="#" class="btn btn-floating btn-facebook">
-                    <i class="fa fa-facebook"></i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a href="#" class="btn btn-floating btn-twitter">
-                    <i class="fa fa-twitter"></i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a href="#" class="btn btn-floating btn-dribbble">
-                    <i class="fa fa-dribbble"></i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a href="#" class="btn btn-floating btn-linkedin">
-                    <i class="fa fa-linkedin"></i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a href="#" class="btn btn-floating btn-google">
-                    <i class="fa fa-google"></i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a href="#" class="btn btn-floating btn-behance">
-                    <i class="fa fa-behance"></i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a href="#" class="btn btn-floating btn-instagram">
-                    <i class="fa fa-instagram"></i>
-                </a>
-            </li>
-        </ul>
-        <hr>
-        <p class="text-muted">Don't have an account?</p>
-        <a href="register.html" class="btn btn-outline-light btn-sm">Register now!</a>
-    </form>
-    <!-- ./ form -->
+            
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Contraseña" required>
+            </div>
+            
+            <div id="captchaContainer">
+                <div id="customCheckbox" onclick="simularVerificacion();"></div>
+                <div id="loadingIcon" class="hidden"></div>
+                <label id="textoCaptcha" for="customCheckbox">No soy un robot</label>
+                <img id="logoCaptcha" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/RecaptchaLogo.svg/2048px-RecaptchaLogo.svg.png" alt="Captcha" style="margin-left:auto;">
+            </div>
+            
+            <br>
+            <button type="button" class="btn btn-primary btn-block">Iniciar Sesión</button>
 
-</div>
+        </form>
+    </div>
+    <!-- Plugin scripts -->
+    <script src="vendors/bundle.js"></script>
+    <!-- App scripts -->
+    <script src="assets/js/app.min.js"></script>
+    <script>
+/* ... código anterior de JavaScript ... */
 
-<!-- Plugin scripts -->
-<script src="vendors/bundle.js"></script>
+function simularVerificacion() {
+    var checkbox = document.getElementById('customCheckbox');
+    var loadingIcon = document.getElementById('loadingIcon');
+    
+    // Si ya se está mostrando el icono de carga o el checkbox está marcado, no hacer nada
+    if (!loadingIcon.classList.contains('hidden') || checkbox.classList.contains('checked')) {
+        return;
+    }
 
-<!-- App scripts -->
-<script src="assets/js/app.min.js"></script>
+    // Oculta el checkbox y muestra el icono de carga
+    checkbox.classList.add('hidden'); // Oculta el checkbox
+    loadingIcon.classList.remove('hidden'); // Muestra el icono de carga
+
+    // Simula la carga y luego muestra el check verde
+    setTimeout(function() {
+        loadingIcon.classList.add('hidden'); // Oculta el icono de carga
+        checkbox.classList.remove('hidden', 'checked'); // Muestra el checkbox sin el check
+        checkbox.classList.add('checked'); // Añade el check verde
+    }, 2000); // 2 segundos de retraso para simular la carga
+}
+
+    </script>
 </body>
-
-<!-- Mirrored from semantika.laborasyon.com/demos/default/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Dec 2023 17:38:59 GMT -->
 </html>
